@@ -21,8 +21,6 @@ namespace ProyectodeCurso
         public bool PrivacyS1 { get => PrivacyS; set => PrivacyS = value; }
 
 
-
-
         public PlaylistS(string ownerser, string name_playlist, bool privacy)
         {
             this.OwnerUser1 = ownerser;
