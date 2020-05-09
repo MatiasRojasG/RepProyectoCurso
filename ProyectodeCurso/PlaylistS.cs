@@ -37,5 +37,6 @@ namespace ProyectodeCurso
         {
             ListS.Add(song);
         }
+        //Vision si es publica
     }
 }

@@ -41,6 +41,7 @@ namespace ProyectodeCurso
         {
             ListM.Add(movie);
         }
+        //Vision si es publica
 
     }
 }
