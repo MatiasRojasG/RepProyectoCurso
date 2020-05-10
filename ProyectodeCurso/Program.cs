@@ -9,44 +9,72 @@ using System.Threading.Tasks;
 namespace ProyectodeCurso
 {
     class MainClass
-    { 
+    {
         public static void Main(string[] args)
         {
-            string Opcion1;
-            string nombrePlaylistS;
-            string privacyS;
-            //Si entra como usuario dueño de playlists
-            Console.WriteLine("Elija una opción:");
-            Console.WriteLine("1) Crear Playlist de Música");
-            Console.WriteLine("2) Ver Playlists de Música");
-            Console.WriteLine("3) Crear Playlist de Películas");
-            Console.WriteLine("4) Ver Playlists de Peliculas");
-            Opcion1 = Console.ReadLine();
-            if (Opcion1=="1")
-            {
-                Console.WriteLine("Ingrese el nombre de la Playlist");
-                nombrePlaylistS = Console.ReadLine();
-                Console.WriteLine("¿Desea que su Playlist sea privada?");
-                privacyS = Console.ReadLine();
-                if (privacyS == "Si")
-                {
-                    PlaylistS playlistSpriv = new PlaylistS("owneruser", nombrePlaylistS, true);
-
-                }
-                if (privacyS=="No")
-                {
-                    PlaylistS playlistSpub = new PlaylistS("owneruser", nombrePlaylistS,false);
-                }
-                else
-                {
-                    Console.WriteLine("Error / Favor elija una opción válida");
-                }
-            }
+            //Creacion de la cancion
+            string nombrecancion;
+            string album;
+            string generocancion;
+            string cantante;
+            string compositor;
+            float rankings;
+            string añodepublicacions;
+            string letra;
+            int megusta;
+            int reproducciones;
+            string tipodearchivo;
+            string calidaddeaudio;
+            string imagenalum;
+            string duracions;
+            string tamañocancion;
+            int descargass;
+            bool descargapos;
+            //Console.ReadLine() le damos valores a los atributos
+            Songs cancion = new Songs(nombrecancion, album, generocancion, cantante, compositor, rankings, añodepublicacions, letra, megusta, reproducciones, tipodearchivo, calidaddeaudio,
+                imagenalum, duracions, tamañocancion, descargass, descargapos);
 
 
 
+            //Creacion cantante
+            string nombrecantante;
+            string apellidocantante;
+            string nombreartistico;
+            int rankingcantante;
+            //Console.ReadLine() le damos valores a los atributos
+            Singer cantante1 = new Singer(nombrecantante, apellidocantante, nombreartistico, rankingcantante);
 
-            //Si es otro usuario
+
+            //Creacion de la playlist
+            string Usuariocreador;
+            string nombreplaylistcancion;
+            bool privacidadcancion;
+            //Console.ReadLine() le damos valores a los atributos
+            PlaylistS playlists1 = new PlaylistS(Usuariocreador, nombreplaylistcancion, privacidadcancion);
+
+
+            //Añadir cancion a playlist
+            //Usaremos una cancion "cancion" para la playlist1
+            playlists1.AddLists(cancion);
+
+
+
+            //Profile profile1 sigue a la playlist1 / Duda con playlist favs ¿Tambien se debería seguir?
+            Profile profile1 = new Profile();
+            playlists1.AddFollowersPS(profile1);
+            profile1.AddPlaylistFollowingS(playlists1);
+
+
+
+            //Buscar una cancion "cancion" en la database
+            APP app = new APP();
+            app.SearchSong(cancion);
+
+
+
+            //Buscar una cancion "cancion" en una playlist "playlist1"
+            playlists1.SongSearchinPlaylist(cancion);
+
 
 
 
@@ -54,3 +82,4 @@ namespace ProyectodeCurso
         }
     }
 }
+

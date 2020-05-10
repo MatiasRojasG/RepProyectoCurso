@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ProyectodeCurso
 {
@@ -8,12 +11,12 @@ namespace ProyectodeCurso
         //Atributos
         private string OwnerUser;
         private string Name_PlaylistS;
-        private bool PrivacyS; //Si vale true es privada, distinto publica
+        private bool PrivacyS; //true == privada / false == publica
 
 
         //Listas
-        public List<Profile> FollowersPS = new List<Profile> { };
-        public List<Songs> ListS = new List<Songs> { };
+        public List<Profile> FollowersPS = new List<Profile> { }; //Lista de seguidores
+        public List<Songs> ListS = new List<Songs> { }; //Lista de canciones
 
 
         public string OwnerUser1 { get => OwnerUser; set => OwnerUser = value; }
@@ -27,16 +30,35 @@ namespace ProyectodeCurso
             this.Name_PlaylistS1 = name_playlist;
             this.PrivacyS1 = privacy;
         }
+
+
         //Añadir seguidor
         public void AddFollowersPS(Profile profile)
         {
             FollowersPS.Add(profile);
         }
+
+
         //Añadir Cancion
-        public void Lists(Songs song)
+        public void AddLists(Songs song)
         {
             ListS.Add(song);
         }
-        //Vision si es publica
+
+
+
+        //Buscar Cancion dentro de la playlist
+        public string SongSearchinPlaylist(Songs song)
+        {
+            if (ListS.Contains(song))
+            {
+                return song.InfoSong();
+            }
+            else
+            {
+                return "Canción no encontrada dentro de la playlist " +Name_PlaylistS1;
+            }
+
+        }
     }
 }
