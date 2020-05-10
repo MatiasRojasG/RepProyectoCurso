@@ -36,6 +36,7 @@
     <Compile Include="Singer.cs" />
     <Compile Include="Songs.cs" />
     <Compile Include="Profile.cs" />
+    <Compile Include="APP.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
