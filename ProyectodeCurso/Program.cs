@@ -30,12 +30,19 @@ namespace ProyectodeCurso
             string tamañocancion;
             int descargass;
             bool descargapos;
+
+
+
+            string tipo;
+
+
+            //Admin
             //Console.ReadLine() le damos valores a los atributos
             Songs cancion = new Songs(nombrecancion, album, generocancion, cantante, compositor, rankings, añodepublicacions, letra, megusta, reproducciones, tipodearchivo, calidaddeaudio,
                 imagenalum, duracions, tamañocancion, descargass, descargapos);
 
 
-
+            //Admin
             //Creacion cantante
             string nombrecantante;
             string apellidocantante;
@@ -45,27 +52,32 @@ namespace ProyectodeCurso
             Singer cantante1 = new Singer(nombrecantante, apellidocantante, nombreartistico, rankingcantante);
 
 
+            //Usuario
             //Creacion de la playlist
             string Usuariocreador;
             string nombreplaylistcancion;
             bool privacidadcancion;
             //Console.ReadLine() le damos valores a los atributos
-            PlaylistS playlists1 = new PlaylistS(Usuariocreador, nombreplaylistcancion, privacidadcancion);
+            PlaylistS playlists1 = new PlaylistS(Usuariocreador, nombreplaylistcancion, privacidadcancion, tipo);
 
 
+            //Usuario
             //Añadir cancion a playlist
-            //Usaremos una cancion "cancion" para la playlist1
-            playlists1.AddLists(cancion);
+            playlists1.AddListS(cancion);
 
 
 
-            //Profile profile1 sigue a la playlist1 / Duda con playlist favs ¿Tambien se debería seguir?
+            //Usuario
+            //Profile "profile1" sigue a la playlist1 publica
             Profile profile1 = new Profile();
-            playlists1.AddFollowersPS(profile1);
-            profile1.AddPlaylistFollowingS(playlists1);
+            if (playlists1.PrivacyS1 == false)
+            {
+                playlists1.AddFollowersPS(profile1);
+                profile1.AddPlaylistFollowingS(playlists1);
+            }
 
 
-
+            //Usuario
             //Buscar una cancion "cancion" en la database
             APP app = new APP();
             app.SearchSong(cancion);
@@ -74,6 +86,9 @@ namespace ProyectodeCurso
 
             //Buscar una cancion "cancion" en una playlist "playlist1"
             playlists1.SongSearchinPlaylist(cancion);
+
+
+            //Buscar una playlist
 
 
 

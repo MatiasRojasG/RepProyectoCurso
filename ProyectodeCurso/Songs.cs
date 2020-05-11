@@ -19,7 +19,7 @@ namespace ProyectodeCurso
         private string albumimage;
         private string durations;
         private string songsize;
-        private int downoalds;
+        private int downloads;
         private bool candownload; //true==Sí / false==No
 
 
@@ -37,14 +37,43 @@ namespace ProyectodeCurso
             this.lyrics = Lyrics;
             this.likes = Likes;
             this.reproductionss = ReproductionsS;
-            this.typefiles = TypeFile;
+            this.typefiles1 = TypeFile;
             this.audioquality = AudioQuality;
             this.albumimage = AlbumImage;
             this.durations = DurationS;
             this.songsize = SongSize;
-            this.downoalds = Downloads;
+            this.downloads = Downloads;
             this.candownload = CanDownload;
         }
+        public string typefiles1 { get => typefiles; set => typefiles = value; }
+        public string Name { get => name; set => name = value; }
+        public string Album { get => album; set => album = value; }
+        public string Songgenre { get => songgenre; set => songgenre = value; }
+        public string Singer { get => singer; set => singer = value; }
+        public float Rankings { get => rankings; set => rankings = value; }
+        public string Yearpublishs { get => yearpublishs; set => yearpublishs = value; }
+        public string Lyrics { get => lyrics; set => lyrics = value; }
+
+        public string Composer { get => composer; set => composer = value; }
+        public int Likes { get => likes; set => likes = value; }
+
+        public int Reproductionss { get => reproductionss; set => reproductionss = value; }
+        public string TypefileS { get => typefiles; set => typefiles = value; }
+        public string Audioquality { get => audioquality; set => audioquality = value; }
+        public string Albumimage { get => albumimage; set => albumimage = value; }
+        public string Durations { get => durations; set => durations = value; }
+        public string Songsize { get => songsize; set => songsize = value; }
+        public int DownloadS { get => downloads; set => downloads = value; }
+        public bool Candownload { get => candownload; set => candownload = value; }
+
+
+
+
+
+
+
+
+
 
 
         //Informacion de la Cancion
@@ -52,18 +81,14 @@ namespace ProyectodeCurso
         {
             if (candownload == true)
             {
-                return "Album: " + album + " Nombre Canción: " + name + " Artista: " + singer + " Compositor: " + composer + "Ranking: " + rankings + " Duración: " + durations + " Likes: " + likes + " Descargas: " + downoalds +
-                    " Reproducciones: " + reproductionss + " Descarga: Disponible";
+                return "Album: " + Album + " Nombre Canción: " + Name + " Artista: " + Singer + " Compositor: " + Composer + "Ranking: " + Rankings + " Duración: " + Durations + " Likes: " + Likes + " Descargas: " + DownloadS +
+                    " Reproducciones: " + reproductionss + " Descarga: Opción No Disponible";
             }
             else
             {
-                return "Album: " + album + " Nombre Canción: " + name + " Artista: " + singer + " Compositor: " + composer + "Ranking: " + rankings + " Duración: " + durations + " Likes: " + likes + " Descargas: " + downoalds +
+                return "Album: " + Album + " Nombre Canción: " + Name + " Artista: " + Singer + " Compositor: " + Composer + "Ranking: " + Rankings + " Duración: " + Durations + " Likes: " + Likes + " Descargas: " + DownloadS +
                     " Reproducciones: " + reproductionss + " Descarga: Opción No Disponible";
             }
-        }
-        public string LyricsSong()
-        {
-            return lyrics;
         }
 
 

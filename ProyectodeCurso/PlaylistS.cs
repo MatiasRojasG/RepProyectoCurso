@@ -12,6 +12,7 @@ namespace ProyectodeCurso
         private string OwnerUser;
         private string Name_PlaylistS;
         private bool PrivacyS; //true == privada / false == publica
+        private string type;
 
 
         //Listas
@@ -22,13 +23,15 @@ namespace ProyectodeCurso
         public string OwnerUser1 { get => OwnerUser; set => OwnerUser = value; }
         public string Name_PlaylistS1 { get => Name_PlaylistS; set => Name_PlaylistS = value; }
         public bool PrivacyS1 { get => PrivacyS; set => PrivacyS = value; }
+        public string Type{ get => type; set => type = value; }
 
 
-        public PlaylistS(string ownerser, string name_playlist, bool privacy)
+        public PlaylistS(string ownerser, string name_playlist, bool privacy, string type)
         {
             this.OwnerUser1 = ownerser;
             this.Name_PlaylistS1 = name_playlist;
             this.PrivacyS1 = privacy;
+            this.type = type;
         }
 
 
@@ -39,10 +42,17 @@ namespace ProyectodeCurso
         }
 
 
-        //Añadir Cancion
-        public void AddLists(Songs song)
+        //Añadir cancion y establecer typefile
+        public void AddListS(Songs song)
         {
-            ListS.Add(song);
+           if (song.typefiles1 == Type)
+            {
+                ListS.Add(song);
+            }
+           else
+            {
+                Console.WriteLine("Las canciones deben tener el mismo Filetype");
+            }
         }
 
 
@@ -56,9 +66,20 @@ namespace ProyectodeCurso
             }
             else
             {
-                return "Canción no encontrada dentro de la playlist " +Name_PlaylistS1;
+                return "Canción no encontrada dentro de la playlist " + Name_PlaylistS1;
             }
 
+        }
+
+        public string InfoPlaylistS()
+        {
+            Console.WriteLine("Creador :" + OwnerUser1 + " Nombre de la Playlist: " + Name_PlaylistS1);
+            Console.WriteLine("Canciones: ");
+            foreach (Songs song in ListS)
+            {
+                return "Nombre: "+song.Name;
+            }
+            return "...";
         }
     }
 }

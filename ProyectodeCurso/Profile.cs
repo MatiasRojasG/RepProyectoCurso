@@ -11,15 +11,15 @@ namespace ProyectodeCurso
     {
         //Listas
         List<PlaylistS> PlaylistS = new List<PlaylistS> { };
-        List<PlaylistS> PlaylistFavS = new List<PlaylistS> { };
+        List<Songs> FavSong = new List<Songs> { };
         List<PlaylistS> PlaylistFollowingS = new List<PlaylistS> { };
         List<Singer> SingerFollowing = new List<Singer> { };
 
 
         //Metodos para agregar a las listas playlist/cantantes
-        public void AddPlaylistFavS(PlaylistS playlist)
+        public void AddFavSong(Songs song)
         {
-            PlaylistFavS.Add(playlist);
+            FavSong.Add(song);
         }
 
         public void AddPlaylistS(PlaylistS playlist)
