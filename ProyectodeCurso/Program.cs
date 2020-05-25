@@ -165,11 +165,20 @@ namespace ProyectodeCurso
 
             else if (OptionMenuUser == "4")
             {
-
+                Console.WriteLine("Ingrese el nombre de la canción:");
+                string NameSong = Console.ReadLine();
+                if(app.DispSong(app.GetSongs(NameSong))==true) //Esta la cancion dentro de la database?
+				{
+                    app.GetSongs(NameSong).InfoSong();
+                }
+                else
+				{
+                    Console.WriteLine("ERROR; El nombre ingresado no es válido o la canción no se encuentra");
+				}
             }
 
 
-            else if (OptionMenuUser == "5")
+            else if (OptionMenuUser == "5") //Buscar cancion dentro de una playlist
             {
 
             }

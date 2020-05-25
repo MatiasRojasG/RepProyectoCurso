@@ -70,7 +70,7 @@ namespace Proyecto_APP_SpotiNetflix
             return "";
 
         }
-        public PlaylistS GetPlaylistS(string NamePlaylistS)
+        public PlaylistS GetPlaylistS(string NamePlaylistS) //En vez de usar una lista PlaylistSinDataB usar 2 foreach
         {
             foreach (PlaylistS playlist in PlaylistSinDataB)
             {
@@ -83,14 +83,25 @@ namespace Proyecto_APP_SpotiNetflix
         }
         public Songs GetSongs(string NameSong)
         {
-            foreach (Songs song in DataBaseSongs)
-            {
+            foreach(Songs song in DataBaseSongs)
+			{
                 if(song.Name_Song1==NameSong)
-                {
+				{
                     return song;
-                }
-            }
-            return null;
+				}
+			}
+            
         }
+        public bool DispSong(Songs song)
+		{
+            if(DataBaseSongs.Contains(song))
+			{
+                return true;
+			}
+            else
+			{
+                return false;
+			}
+		}
     }   
 }
