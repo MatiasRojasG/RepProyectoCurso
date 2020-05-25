@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Proyecto_APP_SpotiNetflix;
 
 namespace ProyectodeCurso
 {
@@ -23,7 +24,7 @@ namespace ProyectodeCurso
         public string OwnerUser1 { get => OwnerUser; set => OwnerUser = value; }
         public string Name_PlaylistS1 { get => Name_PlaylistS; set => Name_PlaylistS = value; }
         public bool PrivacyS1 { get => PrivacyS; set => PrivacyS = value; }
-        public string Type{ get => type; set => type = value; }
+        public string Type { get => type; set => type = value; }
 
 
         public PlaylistS(string ownerser, string name_playlist, bool privacy, string type)
@@ -45,11 +46,11 @@ namespace ProyectodeCurso
         //Añadir cancion y establecer typefile
         public void AddListS(Songs song)
         {
-           if (song.typefiles1 == Type)
+            if (song.TypeFileS1 == Type)
             {
                 ListS.Add(song);
             }
-           else
+            else
             {
                 Console.WriteLine("Las canciones deben tener el mismo Filetype");
             }
@@ -77,7 +78,7 @@ namespace ProyectodeCurso
             Console.WriteLine("Canciones: ");
             foreach (Songs song in ListS)
             {
-                return "Nombre: "+song.Name;
+                return "Nombre: " + song.Name;
             }
             return "...";
         }

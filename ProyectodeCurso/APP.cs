@@ -1,96 +1,96 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using ProyectodeCurso;
 
-
-namespace ProyectodeCurso
+namespace Proyecto_APP_SpotiNetflix
 {
-    class APP
+    class App
     {
-        protected List<Songs> DataBaseSongs = new List<Songs>();
-        protected List<PlaylistS> DataBasePlaylistS = new List<PlaylistS> { };
+
+        private List<Songs> DataBaseSongs = new List<Songs>();
+        private List<Movies> DataBaseMovies = new List<Movies>();
+        private List<Profile> DataBaseUsers = new List<Profile>();
+
+        private List<Singer> DataBaseSingers = new List<Singer>();
+        private List<WorkerMovie> DataBaseWorkersM = new List<WorkerMovie>();
+
+        private List<List<PlaylistM>> DataBasePlaylistM = new List<List<PlaylistM>>();
+        private List<List<PlaylistS>> DataBasePlaylistS = new List<List<PlaylistS>>();
+
+        private List<PlaylistS> PlaylistSinDataB = new List<PlaylistS> { };
+
+
+
+        protected List<Movies> KeyWordMovies = new List<Movies> { };
         protected List<Songs> KeyWordSongs = new List<Songs> { };
 
-        public APP()
+        protected List<Songs> KeyWordRankingigualsongs = new List<Songs> { };//lista para en las cuales son igual la key y el ranking de songs
+        protected List<Songs> KeyWordRankingmayorsongs = new List<Songs> { };
+        protected List<Songs> KeyWordRankingmenorsongs = new List<Songs> { };
+        protected List<Movies> KeyWordRankingigualmovies = new List<Movies> { };
+        protected List<Movies> KeyWordRankingmenormovies = new List<Movies> { };
+        protected List<Movies> KeyWordRankingmayormovies = new List<Movies> { };
+        protected List<Movies> KeyWordCategoria = new List<Movies> { };
+
+
+
+
+        public App()
         {
+
         }
-        //Buscar cancion
-        public string SearchSong(Songs song)
+
+        public string SearchPlaylistS(string nombreplaylist)
         {
-            if (DataBaseSongs.Contains(song))
+            foreach (PlaylistS playlist in PlaylistSinDataB)
             {
-                return song.InfoSong();
-            }
-            else //No la contiene
-            {
-                return "Canción no encontrada";
-            }
-        }
-        public string SearchKeyWord(string Key, string type) //En teoria deberia entregar todas las canciones que tengan la coincidencia
-        {
-            if (type == "Música")
-            {
-                foreach (Songs song in DataBaseSongs)
+                if (playlist.Name_PlaylistS1 == nombreplaylist)
                 {
-                    if (Key==song.Name || Key == song.Album || Key == song.Songgenre || Key == song.Singer || Key == song.Composer || Key == song.Yearpublishs
-                    || Key == song.TypefileS)
+                    if (playlist.PrivacyS1 == true) //Privada no se puede ver
                     {
-                        KeyWordSongs.Add(song); //Agrega las canciones que cumplan la coincidencia con el keyword
+                        return "Lo lamentamos, esta Playlist es privada";
+                    }
+                    if (playlist.PrivacyS1 == false) //Publica se puede ber
+                    {
+                        return playlist.InfoPlaylistS();
+                    }
+                    else
+                    {
+                        return "Esta playlist no existe"; //Si no es ninguna de las dos, la playlist no existe
                     }
                 }
-                foreach (Songs song1 in KeyWordSongs)
+            }
+            return "";
+
+        }
+        public PlaylistS GetPlaylistS(string NamePlaylistS)
+        {
+            foreach (PlaylistS playlist in PlaylistSinDataB)
+            {
+                if (playlist.Name_PlaylistS1==NamePlaylistS)
                 {
-                    return song1.InfoSong(); //Retorna la info de las canciones de la lista (las que coinciden)
+                    return playlist;
                 }
-                KeyWordSongs.Clear(); //Se resetea la lista para una nueva busqueda
             }
-            if (type=="Películas") //Lo mismo pero con los métodos de las películas
-            {
-                return "";
-            }
-            if (KeyWordSongs.Count==0) //Si la lista no contiene canciones ningun tuvo coincidencia con el keyword
-            {
-                return "No se encontraron coincidencias";
-            }
-            else
-            {
-                return "Error, porfavor ingrese una palabra clave válida";
-            }
+            return null;
         }
-
-
-        //Agregar Cancion
-        public void AddSong(Songs song)
+        public Songs GetSongs(string NameSong)
         {
-            DataBaseSongs.Add(song);
-        }
-
-        //MB vi que ya están los métodos para guardar en la memoria y para verificar las canciones, asi que hago el resto de métodos
-
-
-
-
-        //Busca una playlist
-        public string SearchPlaylistS(PlaylistS playlist)
-        {
-            if (playlist.PrivacyS1==true) //Privada no se puede ver
+            foreach (Songs song in DataBaseSongs)
             {
-                return "Lo lamentamos, esta Playlist es privada";
+                if(song.Name_Song1==NameSong)
+                {
+                    return song;
+                }
             }
-            if (playlist.PrivacyS1==false) //Publica se puede ber
-            {
-                return playlist.InfoPlaylistS();
-            }
-            else
-            {
-                return "Esta playlist no existe"; //Si no es ninguna de las dos, la playlist no existe
-            }
+            return null;
         }
-        public void AddPlaylistStoDataBase(PlaylistS playlist)
-        {
-            DataBasePlaylistS.Add(playlist);
-        }
-    }
+    }   
 }
