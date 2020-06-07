@@ -1,0 +1,17 @@
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\bin\Debug\E3POO.exe.config
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\bin\Debug\E3POO.exe
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\bin\Debug\E3POO.pdb
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\bin\Debug\Interop.WMPLib.dll
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.csprojAssemblyReference.cache
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\Interop.WMPLib.dll
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.csproj.ResolveComReference.cache
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.Inicio.resources
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.Properties.Resources.resources
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.Songs.resources
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.csproj.GenerateResource.cache
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.csproj.CoreCompileInputs.cache
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.exe
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.pdb
+C:\Users\Matias Rojas\source\repos\E3POO\E3POO\obj\Debug\E3POO.Movies.resources
